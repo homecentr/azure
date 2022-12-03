@@ -61,7 +61,7 @@ jobs:
         continue-on-error: true
 
       - name: Update Pull Request
-        uses: actions/github-script@v5.1.0
+        uses: actions/github-script@v6.3.3
         env:
           PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
         with:
