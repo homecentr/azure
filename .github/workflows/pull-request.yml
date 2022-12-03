@@ -69,7 +69,6 @@ jobs:
           script: |
             const output = `#### Terraform Initialization \`${{ steps.init.outcome }}\`
             #### Terraform Plan \`${{ steps.plan.outcome }}\`
-            #### Terraform Validation \`${{ steps.validate.outcome }}\`
 
             <details><summary>Show Plan</summary>
 

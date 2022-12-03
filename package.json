@@ -10,12 +10,12 @@
     "format": "terraform fmt ./terraform",
 
     "init": "terraform -chdir=./terraform init -input=false",
-    "validate": "terraform -chdir=./terraform validate",
+    "validate": "terraform -chdir=./terraform validate -no-color",
 
-    "lab:plan": "terraform -chdir=./terraform plan -input=false -var-file=../environments/lab.tfvars",
-    "lab:apply": "terraform -chdir=./terraform apply -input=false -var-file=../environments/lab.tfvars -auto-approve",
+    "lab:plan": "terraform -chdir=./terraform plan -input=false -var-file=../environments/lab.tfvars -no-color",
+    "lab:apply": "terraform -chdir=./terraform apply -input=false -var-file=../environments/lab.tfvars -auto-approve  -no-color",
     
-    "prod:plan": "terraform -chdir=./terraform plan -input=false -var-file=../environments/prod.tfvars",
-    "prod:apply": "terraform -chdir=./terraform apply -input=false -var-file=../environments/prod.tfvars -auto-approve"
+    "prod:plan": "terraform -chdir=./terraform plan -input=false -var-file=../environments/prod.tfvars -no-color",
+    "prod:apply": "terraform -chdir=./terraform apply -input=false -var-file=../environments/prod.tfvars -auto-approve  -no-color"
   }
 }
