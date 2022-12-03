@@ -1,0 +1,21 @@
+{
+  "name": "homecentr-cloud",
+  "version": "1.0.0",
+  "private": true,
+  "repository": "git@github.com:homecentr/cloud.git",
+  "author": "Lukas Holota <me@lholota.com>",
+  "license": "GPL",
+  "scripts": {
+    "format:check": "terraform fmt -check ./terraform",
+    "format": "terraform fmt ./terraform",
+
+    "init": "terraform -chdir=./terraform init -input=false",
+    "validate": "terraform -chdir=./terraform validate",
+
+    "lab:plan": "terraform -chdir=./terraform plan -input=false -var-file=../environments/lab.tfvars",
+    "lab:apply": "terraform -chdir=./terraform apply -input=false -var-file=../environments/lab.tfvars",
+    
+    "prod:plan": "",
+    "prod:apply": ""
+  }
+}
