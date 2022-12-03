@@ -16,7 +16,7 @@ az login --tenant 36f0d3ea-3ee5-40f5-849b-8c3630c9637b --allow-no-subscriptions
    - Create a secret
    - Assign the application the
 1. Assign the application the `Application Administrator` Administrative role
-1. Use the data from above to create a GitHub secret with following structure
+1. Use the data from above to create a GitHub secret with following structure (put it on one line):
 ```json
 {
     "client_id": "<tba>",

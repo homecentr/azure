@@ -12,7 +12,7 @@ jobs:
     env:
       TF_WORKSPACE: lab
     steps:
-      - uses: actions/checkout@v2.5.0
+      - uses: actions/checkout@v3
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2.0.3
@@ -44,7 +44,7 @@ jobs:
     env:
       TF_WORKSPACE: "prod"
     steps:
-      - uses: actions/checkout@v2.5.0
+      - uses: actions/checkout@v3
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2.0.3
