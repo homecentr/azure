@@ -27,7 +27,7 @@ resource "azuread_application" "proxmox" {
 }
 
 resource "azuread_application_pre_authorized" "proxmox" {
-  application_object_id = azuread_application.proxmox.object_id
+  application_object_id = "00000003-0000-0000-c000-000000000000"
   authorized_app_id     = azuread_application.proxmox.application_id
   permission_ids        = ["37f7f235-527c-4136-accd-4a02d197296e", "7427e0e9-2fba-42fe-b0c0-848c9e6a8182"]
 }
