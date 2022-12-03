@@ -4,13 +4,13 @@ on:
 
 jobs:
   deploy_lab:
-    name: "Deploy to DEV environment"
+    name: "Deploy to Lab"
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: read
     env:
-      TF_WORKSPACE: dev
+      TF_WORKSPACE: lab
     steps:
       - uses: actions/checkout@v2
 
@@ -35,7 +35,7 @@ jobs:
         run: yarn run lab:apply
 
   plan_prod:
-    name: "Terraform PR"
+    name: "Plan Prod"
     runs-on: ubuntu-latest
     permissions:
       contents: read
