@@ -13,9 +13,9 @@
     "validate": "terraform -chdir=./terraform validate",
 
     "lab:plan": "terraform -chdir=./terraform plan -input=false -var-file=../environments/lab.tfvars",
-    "lab:apply": "terraform -chdir=./terraform apply -input=false -var-file=../environments/lab.tfvars",
+    "lab:apply": "terraform -chdir=./terraform apply -input=false -var-file=../environments/lab.tfvars -auto-approve",
     
-    "prod:plan": "",
-    "prod:apply": ""
+    "prod:plan": "terraform -chdir=./terraform plan -input=false -var-file=../environments/prod.tfvars",
+    "prod:apply": "terraform -chdir=./terraform apply -input=false -var-file=../environments/prod.tfvars -auto-approve"
   }
 }
