@@ -32,7 +32,7 @@ jobs:
         run: yarn run validate
 
       - name: Apply terraform
-        run: "yarn run lab:apply -var \"aad_credentials=${{ secrets.AZUREAD_CREDENTIALS_LAB }}\""
+        run: yarn run lab:apply -var 'aad_credentials=${{ secrets.AZUREAD_CREDENTIALS_LAB }}'
 
   plan_prod:
     name: "Plan Prod"
@@ -57,7 +57,7 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        run: "yarn run prod:plan -var \"aad_credentials=${{ secrets.AZUREAD_CREDENTIALS_PROD }}\""
+        run: yarn run prod:plan -var 'aad_credentials=${{ secrets.AZUREAD_CREDENTIALS_PROD }}'
         continue-on-error: true
 
       - name: Update Pull Request
