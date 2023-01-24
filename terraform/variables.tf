@@ -1,3 +1,4 @@
+variable "environment_name" { type = string }
 variable "display_name_environment_suffix" { type = string }
 
 variable "aad_credentials" {
@@ -6,7 +7,9 @@ variable "aad_credentials" {
   default   = null
 }
 
-variable "proxmox_urls" { type = list(string) }
+variable "proxmox_redirect_urls" { type = list(string) }
+variable "argocd_redirect_urls" { type = list(string) }
+variable "pomerium_redirect_urls" { type = list(string) }
 
 locals {
   aad_credentials = var.aad_credentials != null ? (

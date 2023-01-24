@@ -1,0 +1,15 @@
+name: Deploy master
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy_prod:
+    uses: ./.github/workflows/partial-deploy.yml
+    with:
+      environment: prod
+    secrets:
+      githubRelease: false
+      aad_credentials: ${{ secrets.AZUREAD_CREDENTIALS_LAB }}
+      terraform_token: ${{ secrets.TERRAFORM_CLOUD_TOKEN }}

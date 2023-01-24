@@ -17,6 +17,16 @@ terraform {
       source  = "cloudflare/cloudflare"
       version = "3.29.0"
     }
+
+    sops = {
+      source  = "carlpett/sops"
+      version = "~> 0.5"
+    }
+
+    local = {
+      source  = "hashicorp/local"
+      version = "2.3.0"
+    }
   }
 }
 
