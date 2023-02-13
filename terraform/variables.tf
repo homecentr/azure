@@ -16,11 +16,6 @@ variable "proxmox_redirect_urls" { type = list(string) }
 variable "argocd_redirect_urls" { type = list(string) }
 variable "pomerium_redirect_urls" { type = list(string) }
 
-variable "cloudflare_zone_id" {
-  type      = string
-  sensitive = true
-}
-
 locals {
   aad_credentials = var.aad_credentials != null ? (
     jsondecode(var.aad_credentials)
