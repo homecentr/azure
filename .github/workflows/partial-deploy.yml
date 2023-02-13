@@ -16,6 +16,8 @@ on:
         required: true
       cloudflare_api_token:
         required: true
+      sops_age_key:
+        required: true
 
 jobs:
   reusable_workflow_job:
@@ -51,6 +53,8 @@ jobs:
       - name: Validate Terraform
         id: validate
         run: yarn run validate
+        env:
+          SOPS_AGE_KEY: ${{ secrets.sops_age_key }}
 
       - name: "Determine release version and create git tag"
         uses: docker://ghcr.io/codfish/semantic-release-action:v1.9.0
@@ -60,3 +64,5 @@ jobs:
 
       - name: Apply terraform
         run: yarn run ${{ inputs.environment }}:apply -var 'aad_credentials=${{ secrets.aad_credentials }}' -var 'cloudflare_api_token=${{ secrets.CLOUDFLAREAPI_TOKEN }}'
+        env:
+          SOPS_AGE_KEY: ${{ secrets.sops_age_key }}
