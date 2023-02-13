@@ -1,3 +1,8 @@
+variable "cloudflare_api_token" {
+  type      = string
+  sensitive = true
+}
+
 variable "environment_name" { type = string }
 variable "display_name_environment_suffix" { type = string }
 
@@ -10,6 +15,11 @@ variable "aad_credentials" {
 variable "proxmox_redirect_urls" { type = list(string) }
 variable "argocd_redirect_urls" { type = list(string) }
 variable "pomerium_redirect_urls" { type = list(string) }
+
+variable "cloudflare_zone_id" {
+  type      = string
+  sensitive = true
+}
 
 locals {
   aad_credentials = var.aad_credentials != null ? (

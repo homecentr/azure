@@ -7,10 +7,11 @@ jobs:
     uses: ./.github/workflows/partial-deploy.yml
     with:
       environment: lab
-    secrets:
       githubRelease: false
+    secrets:
       aad_credentials: ${{ secrets.AZUREAD_CREDENTIALS_LAB }}
       terraform_token: ${{ secrets.TERRAFORM_CLOUD_TOKEN }}
+      cloudflare_api_token: ${{ secrets.CLOUDFLAREAPI_TOKEN }}
 
   plan_prod:
     name: "Plan Prod"
@@ -41,7 +42,7 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        run: yarn run prod:plan -var 'aad_credentials=${{ secrets.AZUREAD_CREDENTIALS_PROD }}'
+        run: yarn run prod:plan -var 'aad_credentials=${{ secrets.AZUREAD_CREDENTIALS_PROD }}' -var 'cloudflare_api_token=${{ secrets.CLOUDFLAREAPI_TOKEN }}'
         continue-on-error: true
 
       - name: Update Pull Request

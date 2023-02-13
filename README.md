@@ -1,5 +1,11 @@
 # Cloud Resources
 
+## Local set up
+Working with this repository requires installation of several command line tools, please use the [dev-setup](https://github.com/lholota/dev-setup) repo and apply the playbook with following tags:
+- sops
+- terraform
+- yubikey (optional)
+
 ## Azure AD
 
 ### Local development

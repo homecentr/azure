@@ -35,3 +35,7 @@ provider "azuread" {
   client_secret = local.aad_credentials.client_secret
   tenant_id     = local.aad_credentials.tenant_id
 }
+
+provider "cloudflare" {
+  api_token = var.cloudflare_api_token
+}

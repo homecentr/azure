@@ -14,6 +14,8 @@ on:
         required: true
       terraform_token:
         required: true
+      cloudflare_api_token:
+        required: true
 
 jobs:
   reusable_workflow_job:
@@ -57,4 +59,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Apply terraform
-        run: yarn run ${{ inputs.environment }}:apply -var 'aad_credentials=${{ secrets.aad_credentials }}'
+        run: yarn run ${{ inputs.environment }}:apply -var 'aad_credentials=${{ secrets.aad_credentials }}' -var 'cloudflare_api_token=${{ secrets.CLOUDFLAREAPI_TOKEN }}'
