@@ -15,7 +15,6 @@ jobs:
       sops_age_key: ${{ secrets.SOPS_AGE_PRIVATE_KEY }}
 
   plan_prod:
-    name: "Plan Prod"
     runs-on: ubuntu-latest
     permissions:
       contents: read
