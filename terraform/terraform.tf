@@ -15,7 +15,7 @@ terraform {
 
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = "3.29.0"
+      version = "4.0.0-rc2"
     }
 
     sops = {
