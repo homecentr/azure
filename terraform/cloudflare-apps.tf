@@ -47,7 +47,7 @@ resource "cloudflare_access_policy" "apps_users" {
   application_id = cloudflare_access_application.apps[each.key].id
   account_id     = data.sops_file.secrets.data["cloudflare_account_id"]
   name           = "AD Group${var.display_name_environment_suffix} / ${azuread_group.users.display_name}"
-  precedence     = "3" # Temporary workaround
+  precedence     = "2" # Temporary workaround
   decision       = "allow"
 
   include {

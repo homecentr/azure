@@ -9,14 +9,6 @@ variable "cloudflare_apps" {
     display_name     = string
     allow_non_admins = bool
   }))
-
-  default = [
-    {
-      subdomain        = "homepage"
-      display_name     = "Homepage"
-      allow_non_admins = true
-    }
-  ]
 }
 
 variable "cloudflare_ssh_hosts" {

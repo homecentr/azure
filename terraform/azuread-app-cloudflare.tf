@@ -5,7 +5,7 @@ resource "azuread_application" "cloudflare" {
 
   web {
     redirect_uris = [
-        "https://${data.sops_file.secrets.data["cloudflare_team_name"]}.cloudflareaccess.com/cdn-cgi/access/callback"
+      "https://${data.sops_file.secrets.data["cloudflare_team_name"]}.cloudflareaccess.com/cdn-cgi/access/callback"
     ]
   }
 
@@ -80,7 +80,16 @@ resource "azuread_service_principal" "cloudflare" {
 resource "azuread_service_principal_delegated_permission_grant" "cloudflare" {
   service_principal_object_id          = azuread_service_principal.cloudflare.object_id
   resource_service_principal_object_id = azuread_service_principal.msgraph.object_id
-  claim_values                         = ["email", "openid", "offline_access", "profile"]
+  
+  claim_values = [
+    "email",
+    "openid",
+    "offline_access",
+    "profile",
+    "User.Read",
+    "Directory.Read.All",
+    "GroupMember.Read.All"
+  ]
 }
 
 # Assign the app to the Administrators group
