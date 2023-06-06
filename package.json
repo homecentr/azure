@@ -16,6 +16,6 @@
     "lab:apply": "terraform -chdir=./terraform apply -input=false -var-file=../environments/lab.tfvars -var-file=../environments/shared.tfvars -auto-approve -no-color",
     
     "prod:plan": "terraform -chdir=./terraform plan -input=false -var-file=../environments/prod.tfvars -var-file=../environments/shared.tfvars -no-color",
-    "prod:apply": "terraform -chdir=./terraform apply -input=false -var-file=../environments/prod.tfvars -var-file=../environments/shared.tfvars -auto-approve  -no-color"
+    "prod:apply": "terraform -chdir=./terraform apply -input=false -var-file=../environments/prod.tfvars -var-file=../environments/shared.tfvars -auto-approve -no-color"
   }
 }
