@@ -10,12 +10,12 @@ terraform {
   required_providers {
     azuread = {
       source  = "hashicorp/azuread"
-      version = "2.31.0"
+      version = "2.37.2"
     }
 
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = "4.2.0"
+      version = "4.4.0"
     }
 
     sops = {
