@@ -13,7 +13,7 @@ jobs:
       packages: read
     with:
       environment: prod
-      githubRelease: false
+      githubRelease: true
     secrets:
       aad_credentials: ${{ secrets.AZUREAD_CREDENTIALS_PROD }}
       terraform_token: ${{ secrets.TERRAFORM_CLOUD_TOKEN }}
