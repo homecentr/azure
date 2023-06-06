@@ -7,6 +7,9 @@ on:
 jobs:
   deploy_prod:
     uses: ./.github/workflows/partial-deploy.yml
+    permissions:
+      contents: write
+      issues: write
     with:
       environment: prod
       githubRelease: false
