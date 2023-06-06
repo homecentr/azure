@@ -5,7 +5,7 @@ resource "azuread_application" "cloudflare" {
 
   web {
     redirect_uris = [
-      "https://${data.sops_file.secrets.data["cloudflare_team_name"]}.cloudflareaccess.com/cdn-cgi/access/callback"
+      "https://${sensitive(data.sops_file.secrets.data["cloudflare_team_name"])}.cloudflareaccess.com/cdn-cgi/access/callback"
     ]
   }
 

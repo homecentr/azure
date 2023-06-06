@@ -12,7 +12,7 @@ resource "cloudflare_record" "apps" {
 resource "cloudflare_access_application" "apps" {
   for_each = { for each in var.cloudflare_apps : each.display_name => each }
 
-  account_id                = data.sops_file.secrets.data["cloudflare_account_id"]
+  account_id                = sensitive(data.sops_file.secrets.data["cloudflare_account_id"])
   name                      = "${each.value.display_name}${var.display_name_environment_suffix}"
   domain                    = "${each.value.subdomain}${var.cloudflare_apps_subdomain_suffix}.${var.cloudflare_apps_root_domain}"
   type                      = "self_hosted"
@@ -25,7 +25,7 @@ resource "cloudflare_access_policy" "apps_administrators" {
   for_each = { for each in var.cloudflare_apps : each.display_name => each }
 
   application_id = cloudflare_access_application.apps[each.key].id
-  account_id     = data.sops_file.secrets.data["cloudflare_account_id"]
+  account_id     = sensitive(data.sops_file.secrets.data["cloudflare_account_id"])
   name           = "AD Group${var.display_name_environment_suffix} / ${azuread_group.administrators.display_name}"
   precedence     = "1"
   decision       = "allow"
@@ -45,7 +45,7 @@ resource "cloudflare_access_policy" "apps_users" {
   for_each = { for each in var.cloudflare_apps : each.display_name => each if each.allow_non_admins == true }
 
   application_id = cloudflare_access_application.apps[each.key].id
-  account_id     = data.sops_file.secrets.data["cloudflare_account_id"]
+  account_id     = sensitive(data.sops_file.secrets.data["cloudflare_account_id"])
   name           = "AD Group${var.display_name_environment_suffix} / ${azuread_group.users.display_name}"
   precedence     = "2" # Temporary workaround
   decision       = "allow"

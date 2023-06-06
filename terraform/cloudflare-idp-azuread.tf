@@ -1,5 +1,5 @@
 resource "cloudflare_access_identity_provider" "azuread" {
-  account_id = data.sops_file.secrets.data["cloudflare_account_id"]
+  account_id = sensitive(data.sops_file.secrets.data["cloudflare_account_id"])
   name       = "Azure AD${var.display_name_environment_suffix}"
   type       = "azureAD"
 
