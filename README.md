@@ -6,6 +6,12 @@ Working with this repository requires installation of several command line tools
 - terraform
 - yubikey (optional)
 
+## Cloudflare
+
+### Local development
+
+When developing locally, you need to create a Cloudflare API key and pass it using the `TF_VAR_cloudflare_api_key` variable.
+
 ## Azure AD
 
 ### Local development
@@ -30,3 +36,7 @@ az login --tenant 36f0d3ea-3ee5-40f5-849b-8c3630c9637b --allow-no-subscriptions
     "tenant_id": "<tba>"
 }
 ```
+
+### E2E Users
+
+Users are created manually, follow the guide in the [e2e repository](https://github.com/homecentr/e2e).

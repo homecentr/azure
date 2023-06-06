@@ -7,11 +7,15 @@ on:
 jobs:
   deploy_prod:
     uses: ./.github/workflows/partial-deploy.yml
+    permissions:
+      contents: write
+      issues: write
+      packages: read
     with:
       environment: prod
-      githubRelease: false
+      githubRelease: true
     secrets:
       aad_credentials: ${{ secrets.AZUREAD_CREDENTIALS_PROD }}
       terraform_token: ${{ secrets.TERRAFORM_CLOUD_TOKEN }}
-      cloudflare_api_token: ${{ secrets.CLOUDFLAREAPI_TOKEN }}
+      cloudflare_api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       sops_age_key: ${{ secrets.SOPS_AGE_PRIVATE_KEY }}
