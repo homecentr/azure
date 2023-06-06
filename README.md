@@ -6,6 +6,12 @@ Working with this repository requires installation of several command line tools
 - terraform
 - yubikey (optional)
 
+## Cloudflare
+
+### Local development
+
+When developing locally, you need to create a Cloudflare API key and pass it using the `TF_VAR_cloudflare_api_key` variable.
+
 ## Azure AD
 
 ### Local development
