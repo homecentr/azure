@@ -5,13 +5,17 @@ on:
 jobs:
   deploy_lab:
     uses: ./.github/workflows/partial-deploy.yml
+    permissions:
+      contents: write
+      issues: write
+      packages: read
     with:
       environment: lab
       githubRelease: false
     secrets:
       aad_credentials: ${{ secrets.AZUREAD_CREDENTIALS_LAB }}
       terraform_token: ${{ secrets.TERRAFORM_CLOUD_TOKEN }}
-      cloudflare_api_token: ${{ secrets.CLOUDFLAREAPI_TOKEN }}
+      cloudflare_api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       sops_age_key: ${{ secrets.SOPS_AGE_PRIVATE_KEY }}
 
   plan_prod:
@@ -42,13 +46,14 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        run: yarn run prod:plan -var 'aad_credentials=${{ secrets.AZUREAD_CREDENTIALS_PROD }}' -var 'cloudflare_api_token=${{ secrets.CLOUDFLAREAPI_TOKEN }}'
+        run: yarn run prod:plan -var 'aad_credentials=${{ secrets.AZUREAD_CREDENTIALS_PROD }}'
         continue-on-error: true
         env:
           SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_PRIVATE_KEY }}
+          TF_VAR_cloudflare_api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
       - name: Update Pull Request
-        uses: actions/github-script@v6.4.0
+        uses: actions/github-script@v6.4.1
         env:
           PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
         with:
