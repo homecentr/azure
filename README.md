@@ -30,3 +30,7 @@ az login --tenant 36f0d3ea-3ee5-40f5-849b-8c3630c9637b --allow-no-subscriptions
     "tenant_id": "<tba>"
 }
 ```
+
+### E2E Users
+
+Users are created manually, follow the guide in the [e2e repository](https://github.com/homecentr/e2e).
