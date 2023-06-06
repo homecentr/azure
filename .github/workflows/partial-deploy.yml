@@ -63,7 +63,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Apply terraform
-        run: yarn run ${{ inputs.environment }}:apply -var 'aad_credentials=${{ secrets.aad_credentials }}' -var 'cloudflare_api_token=${{ secrets.CLOUDFLAREAPI_TOKEN }}'
+        run: yarn run ${{ inputs.environment }}:apply -var 'aad_credentials=${{ secrets.aad_credentials }}'
         env:
           SOPS_AGE_KEY: ${{ secrets.sops_age_key }}
           TF_VAR_cloudflare_api_token: ${{ secrets.cloudflare_api_token }}
