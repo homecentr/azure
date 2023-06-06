@@ -80,7 +80,7 @@ resource "azuread_service_principal" "cloudflare" {
 resource "azuread_service_principal_delegated_permission_grant" "cloudflare" {
   service_principal_object_id          = azuread_service_principal.cloudflare.object_id
   resource_service_principal_object_id = azuread_service_principal.msgraph.object_id
-  
+
   claim_values = [
     "email",
     "openid",
