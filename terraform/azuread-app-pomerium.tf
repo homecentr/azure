@@ -67,4 +67,9 @@ resource "azuread_app_role_assignment" "pomerium_administrators" {
   resource_object_id  = azuread_service_principal.pomerium.object_id
 }
 
-# TODO: Assign muggles
+# Assign the app to the Users group
+resource "azuread_app_role_assignment" "pomerium_users" {
+  app_role_id         = "00000000-0000-0000-0000-000000000000" # Default access
+  principal_object_id = azuread_group.users.object_id
+  resource_object_id  = azuread_service_principal.pomerium.object_id
+}
