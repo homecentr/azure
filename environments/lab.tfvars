@@ -9,7 +9,10 @@ proxmox_redirect_urls = [
   "https://10.1.8.11/",
   "https://10.1.8.12/",
   "https://10.1.8.13/",
-  "https://pve-lab.homecentr.one/"
+  "https://pve-lab.homecentr.one/",
+  "https://pve1-lab.homecentr.one/",
+  "https://pve2-lab.homecentr.one/",
+  "https://pve3-lab.homecentr.one/"
 ]
 
 argocd_redirect_urls = [
