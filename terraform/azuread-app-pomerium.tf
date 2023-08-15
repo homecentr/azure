@@ -6,29 +6,29 @@ resource "azuread_application" "pomerium" {
     redirect_uris = var.pomerium_redirect_urls
   }
 
-  required_resource_access {
-    resource_app_id = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph
+  # required_resource_access {
+  #   resource_app_id = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph
 
-    # resource_access {
-    #   id   = azuread_service_principal.msgraph.oauth2_permission_scope_ids["User.Read"]
-    #   type = "Scope"
-    # }
+  #   resource_access {
+  #     id   = azuread_service_principal.msgraph.oauth2_permission_scope_ids["User.Read"]
+  #     type = "Scope"
+  #   }
 
-    # resource_access {
-    #   id   = azuread_service_principal.msgraph.oauth2_permission_scope_ids["User.Read.All"]
-    #   type = "Role"
-    # }
+  #   # resource_access {
+  #   #   id   = azuread_service_principal.msgraph.oauth2_permission_scope_ids["User.Read.All"]
+  #   #   type = "Role"
+  #   # }
 
-    # resource_access {
-    #   id   = azuread_service_principal.msgraph.oauth2_permission_scope_ids["Group.Read.All"]
-    #   type = "Role"
-    # }
+  #   # resource_access {
+  #   #   id   = azuread_service_principal.msgraph.oauth2_permission_scope_ids["Group.Read.All"]
+  #   #   type = "Role"
+  #   # }
 
-    # resource_access {
-    #   id   = azuread_service_principal.msgraph.oauth2_permission_scope_ids["Directory.Read.All"]
-    #   type = "Role"
-    # }
-  }
+  #   # resource_access {
+  #   #   id   = azuread_service_principal.msgraph.oauth2_permission_scope_ids["Directory.Read.All"]
+  #   #   type = "Role"
+  #   # }
+  # }
 
   api {
     requested_access_token_version = "2"
@@ -54,11 +54,11 @@ resource "azuread_service_principal" "pomerium" {
 }
 
 # Admin level consent for the required scopes
-# resource "azuread_service_principal_delegated_permission_grant" "pomerium" {
-#   service_principal_object_id          = azuread_service_principal.pomerium.object_id
-#   resource_service_principal_object_id = azuread_service_principal.msgraph.object_id
-#   claim_values                         = ["User.Read", "User.Read.All", "Group.Read.All", "Directory.Read.All"]
-# }
+resource "azuread_service_principal_delegated_permission_grant" "pomerium" {
+  service_principal_object_id          = azuread_service_principal.pomerium.object_id
+  resource_service_principal_object_id = azuread_service_principal.msgraph.object_id
+  claim_values                         = ["User.Read", "User.Read.All", "Group.Read.All", "Directory.Read.All"]
+}
 
 # Assign the app to the Administrators group
 resource "azuread_app_role_assignment" "pomerium_administrators" {
