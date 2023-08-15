@@ -40,6 +40,8 @@ resource "azuread_application" "pomerium" {
   #   }
   # }
 
+  group_membership_claims = [ "SecurityGroup", "ApplicationGroup" ]
+
   api {
     requested_access_token_version = "2"
   }
