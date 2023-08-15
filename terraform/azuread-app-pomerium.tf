@@ -30,6 +30,16 @@ resource "azuread_application" "pomerium" {
     }
   }
 
+  optional_claims {
+    access_token {
+      name = "groups"
+    }
+
+    id_token {
+      name = "groups"
+    }
+  }
+
   api {
     requested_access_token_version = "2"
   }
