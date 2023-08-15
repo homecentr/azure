@@ -15,17 +15,17 @@ resource "azuread_application" "pomerium" {
     }
 
     resource_access {
-      id   = azuread_service_principal.msgraph.app_role_ids["User.Read.All"]
+      id   = azuread_service_principal.msgraph.oauth2_permission_scope_ids["User.Read.All"]
       type = "Role"
     }
 
     resource_access {
-      id   = azuread_service_principal.msgraph.app_role_ids["Group.Read.All"]
+      id   = azuread_service_principal.msgraph.oauth2_permission_scope_ids["Group.Read.All"]
       type = "Role"
     }
 
     resource_access {
-      id   = azuread_service_principal.msgraph.app_role_ids["Directory.Read.All"]
+      id   = azuread_service_principal.msgraph.oauth2_permission_scope_ids["Directory.Read.All"]
       type = "Role"
     }
   }
