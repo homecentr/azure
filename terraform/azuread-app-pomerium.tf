@@ -15,20 +15,36 @@ resource "azuread_application" "pomerium" {
     }
 
     resource_access {
-      id   = azuread_service_principal.msgraph.app_role_ids["User.Read.All"]
-      type = "Role"
+      id   = azuread_service_principal.msgraph.oauth2_permission_scope_ids["User.Read.All"]
+      type = "Scope"
     }
 
     resource_access {
-      id   = azuread_service_principal.msgraph.app_role_ids["Group.Read.All"]
-      type = "Role"
+      id   = azuread_service_principal.msgraph.oauth2_permission_scope_ids["Group.Read.All"]
+      type = "Scope"
     }
 
     resource_access {
-      id   = azuread_service_principal.msgraph.app_role_ids["Directory.Read.All"]
-      type = "Role"
+      id   = azuread_service_principal.msgraph.oauth2_permission_scope_ids["Directory.Read.All"]
+      type = "Scope"
     }
   }
+
+  optional_claims {
+    access_token {
+      name = "groups"
+    }
+
+    id_token {
+      name = "groups"
+    }
+
+    saml2_token {
+      name = "groups"
+    }
+  }
+
+  group_membership_claims = ["SecurityGroup", "ApplicationGroup"]
 
   api {
     requested_access_token_version = "2"
