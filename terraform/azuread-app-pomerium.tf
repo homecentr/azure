@@ -54,11 +54,11 @@ resource "azuread_service_principal" "pomerium" {
 }
 
 # Admin level consent for the required scopes
-resource "azuread_service_principal_delegated_permission_grant" "pomerium" {
-  service_principal_object_id          = azuread_service_principal.pomerium.object_id
-  resource_service_principal_object_id = azuread_service_principal.msgraph.object_id
-  claim_values                         = ["User.Read", "User.Read.All", "Group.Read.All", "Directory.Read.All"]
-}
+# resource "azuread_service_principal_delegated_permission_grant" "pomerium" {
+#   service_principal_object_id          = azuread_service_principal.pomerium.object_id
+#   resource_service_principal_object_id = azuread_service_principal.msgraph.object_id
+#   claim_values                         = ["User.Read", "User.Read.All", "Group.Read.All", "Directory.Read.All"]
+# }
 
 # Assign the app to the Administrators group
 resource "azuread_app_role_assignment" "pomerium_administrators" {
