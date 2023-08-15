@@ -30,15 +30,19 @@ resource "azuread_application" "pomerium" {
     }
   }
 
-  # optional_claims {
-  #   access_token {
-  #     name = "groups"
-  #   }
+  optional_claims {
+    access_token {
+      name = "groups"
+    }
 
-  #   id_token {
-  #     name = "groups"
-  #   }
-  # }
+    id_token {
+      name = "groups"
+    }
+
+    saml2_token {
+      name = "groups"
+    }
+  }
 
   group_membership_claims = ["SecurityGroup", "ApplicationGroup"]
 
