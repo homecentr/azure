@@ -7,8 +7,9 @@ resource "pagerduty_service" "proxmox" {
 }
 
 resource "pagerduty_service_integration" "proxmox" {
-  name              = "Generic API Service Integration"
+  name              = "Proxmox E-mail Alerts"
   type              = "generic_email_inbound_integration"
   integration_email = "proxmox@${sensitive(data.sops_file.secrets.data["pagerduty_email_domain"])}"
-  service           = pagerduty_service.proxmox.id
+
+  service = pagerduty_service.proxmox.id
 }
