@@ -4,10 +4,6 @@ resource "pagerduty_service" "idrac" {
   acknowledgement_timeout = 600
   escalation_policy       = pagerduty_escalation_policy.default.id
   alert_creation          = "create_alerts_and_incidents"
-
-  alert_grouping_parameters {
-    type = "intelligent"
-  }
 }
 
 resource "pagerduty_service_integration" "idrac_pve1" {
