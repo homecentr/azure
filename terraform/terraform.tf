@@ -18,6 +18,11 @@ terraform {
       version = "4.4.0"
     }
 
+    pagerduty = {
+      source  = "pagerduty/pagerduty"
+      version = "2.15.3"
+    }
+
     sops = {
       source  = "carlpett/sops"
       version = "~> 0.5"
@@ -38,4 +43,8 @@ provider "azuread" {
 
 provider "cloudflare" {
   api_token = var.cloudflare_api_token
+}
+
+provider "pagerduty" {
+  token = var.pagerduty_api_token
 }
