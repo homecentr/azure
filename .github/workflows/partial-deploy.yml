@@ -16,6 +16,8 @@ on:
         required: true
       cloudflare_api_token:
         required: true
+      pagerduty_api_token:
+        required: true
       sops_age_key:
         required: true
 
@@ -67,3 +69,4 @@ jobs:
         env:
           SOPS_AGE_KEY: ${{ secrets.sops_age_key }}
           TF_VAR_cloudflare_api_token: ${{ secrets.cloudflare_api_token }}
+          TF_VAR_pagerduty_api_token: ${{ secrets.pagerduty_api_token }}

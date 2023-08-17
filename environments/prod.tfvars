@@ -17,10 +17,12 @@ argocd_redirect_urls = [
 ]
 
 cloudflare_ssh_hosts = [
-    { hostname = "pve1" },
-    { hostname = "pve2" },
-    { hostname = "pve3" }
+  { hostname = "pve1" },
+  { hostname = "pve2" },
+  { hostname = "pve3" }
 ]
 
 cloudflare_apps_subdomain_suffix = ""
 cloudflare_apps_root_domain      = "homecentr.one"
+
+pagerduty_assign_escalation_policy = true

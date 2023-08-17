@@ -28,3 +28,5 @@ cloudflare_ssh_hosts = [
 
 cloudflare_apps_subdomain_suffix = "-lab"
 cloudflare_apps_root_domain      = "homecentr.one"
+
+pagerduty_assign_escalation_policy = false
