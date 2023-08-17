@@ -3,7 +3,7 @@ variable "cloudflare_api_token" {
   sensitive = true
 }
 
-variable "pagerduty_token" {
+variable "pagerduty_api_token" {
   type      = string
   sensitive = true
 }
