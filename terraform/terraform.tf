@@ -20,7 +20,7 @@ terraform {
 
     pagerduty = {
       source  = "pagerduty/pagerduty"
-      version = "2.15.3"
+      version = "3.0.1"
     }
 
     sops = {
