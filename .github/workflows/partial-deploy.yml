@@ -65,9 +65,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Apply terraform
-        run: yarn run ${{ inputs.environment }}:apply
+        run: |
+          echo "Length: ${#TF_VAR_pagerduty_api_token}"
+          yarn run ${{ inputs.environment }}:apply
         env:
           SOPS_AGE_KEY: ${{ secrets.sops_age_key }}
           TF_VAR_aad_credentials: ${{ secrets.aad_credentials }}
           TF_VAR_cloudflare_api_token: ${{ secrets.cloudflare_api_token }}
-          PAGERDUTY_TOKEN: '${{ secrets.pagerduty_api_token }}'
+          TF_VAR_pagerduty_api_token: '${{ secrets.pagerduty_api_token }}'
