@@ -46,5 +46,5 @@ provider "cloudflare" {
 }
 
 provider "pagerduty" {
-  token = jsondecode(var.pagerduty_api_token)
+  token = var.pagerduty_api_token
 }
