@@ -70,4 +70,4 @@ jobs:
           SOPS_AGE_KEY: ${{ secrets.sops_age_key }}
           TF_VAR_aad_credentials: ${{ secrets.aad_credentials }}
           TF_VAR_cloudflare_api_token: ${{ secrets.cloudflare_api_token }}
-          TF_VAR_pagerduty_api_token: ${{ secrets.pagerduty_api_token }}
+          TF_VAR_pagerduty_api_token: '${{ secrets.pagerduty_api_token }}'
