@@ -3,7 +3,7 @@ resource "null_resource" "terraform-debug" {
     command = "echo $VARIABLE1"
 
     environment = {
-        VARIABLE1 = length(var.pagerduty_api_token)
+      VARIABLE1 = length(var.pagerduty_api_token)
     }
   }
 }
