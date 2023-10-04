@@ -3,10 +3,10 @@ variable "cloudflare_api_token" {
   sensitive = true
 }
 
-variable "pagerduty_api_token" {
-  type      = string
-  sensitive = true
-}
+# variable "pagerduty_api_token" {
+#   type      = string
+#   sensitive = true
+# }
 
 variable "cloudflare_apps" {
   type = list(object({
