@@ -46,5 +46,6 @@ provider "cloudflare" {
 }
 
 provider "pagerduty" {
-  token = var.pagerduty_api_token
+  token          = var.pagerduty_api_token
+  service_region = "eu"
 }
