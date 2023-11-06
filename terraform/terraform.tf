@@ -20,7 +20,7 @@ terraform {
 
     pagerduty = {
       source  = "pagerduty/pagerduty"
-      version = "2.15.3"
+      version = "3.0.1"
     }
 
     sops = {
@@ -46,5 +46,6 @@ provider "cloudflare" {
 }
 
 provider "pagerduty" {
-  token = var.pagerduty_api_token
+  token          = var.pagerduty_api_token
+  service_region = "eu"
 }
