@@ -26,7 +26,11 @@ argocd_redirect_urls = [
 cloudflare_ssh_hosts = [
     { hostname = "pve1-lab" },
     { hostname = "pve2-lab" },
-    { hostname = "pve3-lab" }
+    { hostname = "pve3-lab" },
+    { hostname = "kube1-lab" },
+    { hostname = "kube2-lab" },
+    { hostname = "kube3-lab" },
+    { hostname = "lab" }
 ]
 
 cloudflare_apps_subdomain_suffix = "-lab"
