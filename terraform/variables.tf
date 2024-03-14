@@ -35,7 +35,6 @@ variable "aad_credentials" {
 }
 
 variable "proxmox_redirect_urls" { type = list(string) }
-variable "argocd_redirect_urls" { type = list(string) }
 variable "pomerium_redirect_urls" { type = list(string) }
 
 locals {
