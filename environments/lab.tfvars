@@ -18,11 +18,6 @@ proxmox_redirect_urls = [
   "https://lab.homecentr.one/"
 ]
 
-argocd_redirect_urls = [
-  "https://argocd-lab.homecentr.one/auth/callback",
-  "https://localhost:58000/auth/callback", # for testing via kube proxy
-]
-
 cloudflare_ssh_hosts = [
     { hostname = "pve1-lab" },
     { hostname = "pve2-lab" },
