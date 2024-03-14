@@ -15,16 +15,6 @@ cloudflare_apps = [
     allow_non_admins = false
   },
   {
-    subdomain        = "k8s"
-    display_name     = "Kubernetes dashboard"
-    allow_non_admins = false
-  },
-  {
-    subdomain        = "argocd"
-    display_name     = "Argo CD"
-    allow_non_admins = false
-  },
-  {
     subdomain        = "cyberchef"
     display_name     = "CyberChef"
     allow_non_admins = true

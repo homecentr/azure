@@ -12,10 +12,6 @@ proxmox_redirect_urls = [
   "https://pve3.homecentr.one/",
 ]
 
-argocd_redirect_urls = [
-  "https://argocd.homecentr.one/auth/callback"
-]
-
 cloudflare_ssh_hosts = [
   { hostname = "pve1" },
   { hostname = "pve2" },
