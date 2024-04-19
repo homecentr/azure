@@ -15,11 +15,6 @@ cloudflare_apps = [
     allow_non_admins = false
   },
   {
-    subdomain        = "homepage"
-    display_name     = "Homepage"
-    allow_non_admins = true
-  },
-  {
     subdomain        = "status"
     display_name     = "Gatus"
     allow_non_admins = true
