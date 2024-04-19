@@ -8,6 +8,6 @@ resource "cloudflare_access_policy" "service_token" {
   decision       = "allow"
 
   include {
-    service_token = [ var.cloudflare_health_service_token_name ]
+    service_token = [var.cloudflare_health_service_token_name]
   }
 }
