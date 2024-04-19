@@ -20,4 +20,4 @@ cloudflare_ssh_hosts = [
 
 cloudflare_apps_subdomain_suffix = ""
 cloudflare_apps_root_domain      = "homecentr.one"
-cloudflare_health_service_token_name = "Tunnel Health"
+cloudflare_health_service_token_name = "404786299123d60f30b949c7913b0aad.access"
