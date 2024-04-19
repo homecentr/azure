@@ -24,6 +24,7 @@ variable "cloudflare_ssh_hosts" {
 
 variable "cloudflare_apps_subdomain_suffix" { type = string }
 variable "cloudflare_apps_root_domain" { type = string }
+variable "cloudflare_health_service_token_name" { type = string }
 
 variable "environment_name" { type = string }
 variable "display_name_environment_suffix" { type = string }

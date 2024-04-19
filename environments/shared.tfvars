@@ -24,4 +24,9 @@ cloudflare_apps = [
     display_name     = "Pi-hole"
     allow_non_admins = false
   },
+  {
+    subdomain        = "tunnel-health"
+    display_name     = "Cloudflare Tunnel Healthcheck"
+    allow_non_admins = true
+  },
 ]
