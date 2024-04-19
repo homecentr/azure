@@ -15,8 +15,18 @@ cloudflare_apps = [
     allow_non_admins = false
   },
   {
-    subdomain        = "cyberchef"
-    display_name     = "CyberChef"
+    subdomain        = "homepage"
+    display_name     = "Homepage"
     allow_non_admins = true
-  }
+  },
+  {
+    subdomain        = "status"
+    display_name     = "Gatus"
+    allow_non_admins = true
+  },
+  {
+    subdomain        = "pihole"
+    display_name     = "Pi-hole"
+    allow_non_admins = false
+  },
 ]

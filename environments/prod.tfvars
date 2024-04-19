@@ -15,10 +15,7 @@ proxmox_redirect_urls = [
 cloudflare_ssh_hosts = [
   { hostname = "pve1" },
   { hostname = "pve2" },
-  { hostname = "pve3" },
-  { hostname = "kube1" },
-  { hostname = "kube2" },
-  { hostname = "kube3" }
+  { hostname = "pve3" }
 ]
 
 cloudflare_apps_subdomain_suffix = ""
