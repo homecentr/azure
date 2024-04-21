@@ -22,11 +22,9 @@ cloudflare_ssh_hosts = [
     { hostname = "pve1-lab" },
     { hostname = "pve2-lab" },
     { hostname = "pve3-lab" },
-    { hostname = "kube1-lab" },
-    { hostname = "kube2-lab" },
-    { hostname = "kube3-lab" },
     { hostname = "lab" }
 ]
 
 cloudflare_apps_subdomain_suffix = "-lab"
 cloudflare_apps_root_domain      = "homecentr.one"
+cloudflare_health_service_token_name = "503b3806-7f16-43a6-8c1f-4e62bc795395"
