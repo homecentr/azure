@@ -12,6 +12,11 @@ proxmox_redirect_urls = [
   "https://pve3.homecentr.one/",
 ]
 
+grafana_redirect_urls = [
+  "https://grafana.homecentr.one",
+  "https://grafana.homecentr.one/login/azuread"
+]
+
 cloudflare_ssh_hosts = [
   { hostname = "pve1" },
   { hostname = "pve2" },

@@ -37,6 +37,7 @@ variable "aad_credentials" {
 
 variable "proxmox_redirect_urls" { type = list(string) }
 variable "pomerium_redirect_urls" { type = list(string) }
+variable "grafana_redirect_urls" { type = list(string) }
 
 locals {
   aad_credentials = var.aad_credentials != null ? (
