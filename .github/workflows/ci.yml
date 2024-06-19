@@ -8,6 +8,8 @@ jobs:
     permissions:
       contents: read
     steps:
+      - uses: actions/checkout@v4
+      
       - name: Install pre-requisites
         run: |
           yarn
@@ -20,15 +22,12 @@ jobs:
           cli_config_credentials_token: ${{ secrets.terraform_token }}
 
       - name: Terraform Init
-        id: init
         run: yarn run init
 
       - name: Verify Terraform formatting
-        id: fmt
         run: yarn run format:check
 
       - name: Validate Terraform
-        id: validate
         run: yarn run validate
         env:
           SOPS_AGE_KEY: ${{ secrets.sops_age_key }}
