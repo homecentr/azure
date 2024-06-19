@@ -3,21 +3,35 @@ on:
   pull_request:
 
 jobs:
-  deploy_lab:
-    uses: ./.github/workflows/partial-deploy.yml
+  validate:
+    runs-on: ubuntu-latest
     permissions:
-      contents: write
-      issues: write
-      packages: read
-    with:
-      environment: lab
-      githubRelease: false
-    secrets:
-      aad_credentials: ${{ secrets.AZUREAD_CREDENTIALS_LAB }}
-      terraform_token: ${{ secrets.TERRAFORM_CLOUD_TOKEN }}
-      cloudflare_api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      pagerduty_api_token: '${{ secrets.PAGERDUTY_API_TOKEN_LAB }}'
-      sops_age_key: ${{ secrets.SOPS_AGE_PRIVATE_KEY }}
+      contents: read
+    steps:
+      - name: Install pre-requisites
+        run: |
+          yarn
+          sudo wget -O /usr/bin/sops https://github.com/mozilla/sops/releases/download/v3.7.3/sops-v3.7.3.linux.amd64
+          sudo chmod a+x /usr/bin/sops
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3.0.0
+        with:
+          cli_config_credentials_token: ${{ secrets.terraform_token }}
+
+      - name: Terraform Init
+        id: init
+        run: yarn run init
+
+      - name: Verify Terraform formatting
+        id: fmt
+        run: yarn run format:check
+
+      - name: Validate Terraform
+        id: validate
+        run: yarn run validate
+        env:
+          SOPS_AGE_KEY: ${{ secrets.sops_age_key }}
 
   plan_prod:
     runs-on: ubuntu-latest
@@ -25,6 +39,8 @@ jobs:
       contents: read
       packages: read
       pull-requests: write # To allow posting the comment
+    needs:
+      - validate
     env:
       TF_WORKSPACE: "prod"
     steps:
