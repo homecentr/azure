@@ -1,5 +1,5 @@
 resource "azuread_application" "pomerium" {
-  display_name     = "Pomerium${var.display_name_environment_suffix}"
+  display_name     = "Pomerium"
   sign_in_audience = "AzureADMyOrg"
 
   web {
@@ -57,7 +57,7 @@ resource "azuread_application" "pomerium" {
 }
 
 resource "azuread_service_principal" "pomerium" {
-  application_id               = azuread_application.pomerium.application_id
+  client_id                    = azuread_application.pomerium.client_id
   app_role_assignment_required = true
 
   owners = [

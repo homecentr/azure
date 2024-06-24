@@ -1,5 +1,5 @@
 resource "azuread_application" "proxmox" {
-  display_name     = "Proxmox VE${var.display_name_environment_suffix}"
+  display_name     = "Proxmox VE"
   sign_in_audience = "AzureADMyOrg"
 
   web {
@@ -32,7 +32,7 @@ resource "azuread_application" "proxmox" {
 }
 
 resource "azuread_service_principal" "proxmox" {
-  application_id               = azuread_application.proxmox.application_id
+  client_id                    = azuread_application.proxmox.client_id
   app_role_assignment_required = true
 
   owners = [
