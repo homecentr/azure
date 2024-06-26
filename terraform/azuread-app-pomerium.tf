@@ -1,6 +1,7 @@
 resource "azuread_application" "pomerium" {
   display_name     = "Pomerium"
   sign_in_audience = "AzureADMyOrg"
+  logo_image       = filebase64("../icons/pomerium.png")
 
   web {
     redirect_uris = var.pomerium_redirect_urls

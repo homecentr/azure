@@ -1,6 +1,7 @@
 resource "azuread_application" "cloudflare" {
   display_name            = "Cloudflare Access"
   sign_in_audience        = "AzureADMyOrg"
+  logo_image              = filebase64("../icons/cloudflare.png")
   group_membership_claims = ["ApplicationGroup"]
 
   web {
