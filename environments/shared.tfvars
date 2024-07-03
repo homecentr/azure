@@ -5,11 +5,30 @@ cloudflare_apps = [
     allow_non_admins    = true,
     allow_service_token = false
   },
-  # {
-  #   subdomain        = "pve"
-  #   display_name     = "Proxmox VE"
-  #   allow_non_admins = false
-  # },
+  {
+    subdomain           = "pve1"
+    display_name        = "Proxmox VE - Node 1"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "pve2"
+    display_name        = "Proxmox VE - Node 2"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "pbs"
+    display_name        = "Proxmox Backup Server"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "pve3"
+    display_name        = "Proxmox VE - Node 3"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
   {
     subdomain           = "pihole1"
     display_name        = "Pi-hole 1"
@@ -49,6 +68,12 @@ cloudflare_apps = [
   {
     subdomain           = "docs"
     display_name        = "Docs"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "snipeit"
+    display_name        = "Snipe IT"
     allow_non_admins    = true,
     allow_service_token = true
   },

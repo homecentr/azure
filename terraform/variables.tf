@@ -41,6 +41,8 @@ variable "pomerium_redirect_urls" { type = list(string) }
 variable "grafana_redirect_urls" { type = list(string) }
 variable "wikijs_redirect_urls" { type = list(string) }
 
+variable "snipeit_root_url" { type = string }
+
 locals {
   aad_credentials = var.aad_credentials != null ? (
     jsondecode(var.aad_credentials)
