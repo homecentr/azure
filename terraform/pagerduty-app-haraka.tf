@@ -7,9 +7,16 @@ resource "pagerduty_service" "haraka" {
 }
 
 resource "pagerduty_service_integration" "haraka" {
-  name              = "Haraka ACME Alerts"
+  name              = "ACME Alerts"
   type              = "generic_email_inbound_integration"
   integration_email = "smtp-relay-acme@${sensitive(data.sops_file.secrets.data["pagerduty_email_domain"])}"
+
+  service = pagerduty_service.haraka.id
+}
+
+resource "pagerduty_service_integration" "haraka_gatus" {
+  name              = "Gatus"
+  type              = "events_api_v2_inbound_integration"
 
   service = pagerduty_service.haraka.id
 }

@@ -13,3 +13,10 @@ resource "pagerduty_service_integration" "proxmox" {
 
   service = pagerduty_service.proxmox.id
 }
+
+resource "pagerduty_service_integration" "proxmox_gatus" {
+  name              = "Gatus"
+  type              = "events_api_v2_inbound_integration"
+
+  service = pagerduty_service.proxmox.id
+}

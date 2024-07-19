@@ -6,26 +6,14 @@ cloudflare_apps = [
     allow_service_token = false
   },
   {
-    subdomain           = "pve1"
-    display_name        = "Proxmox VE - Node 1"
-    allow_non_admins    = false,
-    allow_service_token = true
-  },
-  {
-    subdomain           = "pve2"
-    display_name        = "Proxmox VE - Node 2"
+    subdomain           = "pve"
+    display_name        = "Proxmox VE"
     allow_non_admins    = false,
     allow_service_token = true
   },
   {
     subdomain           = "pbs"
     display_name        = "Proxmox Backup Server"
-    allow_non_admins    = false,
-    allow_service_token = true
-  },
-  {
-    subdomain           = "pve3"
-    display_name        = "Proxmox VE - Node 3"
     allow_non_admins    = false,
     allow_service_token = true
   },
@@ -81,6 +69,42 @@ cloudflare_apps = [
     subdomain           = "tunnel-health"
     display_name        = "Cloudflare Tunnel Healthcheck"
     allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "homepage"
+    display_name        = "Homepage"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "coder"
+    display_name        = "Coder"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "speed"
+    display_name        = "MySpeed"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "immich"
+    display_name        = "Immich"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "nvr"
+    display_name        = "Frigate"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "whatsupdocker"
+    display_name        = "What's up Docker"
+    allow_non_admins    = false,
     allow_service_token = true
   },
 ]

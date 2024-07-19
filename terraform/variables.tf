@@ -8,6 +8,10 @@ variable "pagerduty_api_token" {
   sensitive = true
 }
 
+variable "root_domain" {
+  type = string
+}
+
 variable "cloudflare_apps" {
   type = list(object({
     subdomain           = string
@@ -40,8 +44,12 @@ variable "proxmox_backup_server_redirect_urls" { type = list(string) }
 variable "pomerium_redirect_urls" { type = list(string) }
 variable "grafana_redirect_urls" { type = list(string) }
 variable "wikijs_redirect_urls" { type = list(string) }
+variable "photoprism_redirect_urls" { type = list(string) }
+variable "immich_redirect_urls" { type = list(string) }
+variable "whatsupdocker_redirect_urls" { type = list(string) }
 
 variable "snipeit_root_url" { type = string }
+variable "nextcloud_root_url" { type = string }
 
 locals {
   aad_credentials = var.aad_credentials != null ? (

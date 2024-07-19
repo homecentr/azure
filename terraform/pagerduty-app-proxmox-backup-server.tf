@@ -7,9 +7,16 @@ resource "pagerduty_service" "pbs" {
 }
 
 resource "pagerduty_service_integration" "pbs" {
-  name              = "Proxmox Backup Server E-mail Alerts"
+  name              = "PBS E-mail Alerts"
   type              = "generic_email_inbound_integration"
   integration_email = "proxmox-backup-server-email@${sensitive(data.sops_file.secrets.data["pagerduty_email_domain"])}"
+
+  service = pagerduty_service.pbs.id
+}
+
+resource "pagerduty_service_integration" "pbs_gatus" {
+  name              = "Gatus"
+  type              = "events_api_v2_inbound_integration"
 
   service = pagerduty_service.pbs.id
 }

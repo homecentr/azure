@@ -12,8 +12,8 @@
     "init": "terraform -chdir=./terraform init -input=false",
     "validate": "terraform -chdir=./terraform validate -no-color",
     
-    "plan": "terraform -chdir=./terraform plan -input=false -var-file=../environments/prod.tfvars -var-file=../environments/shared.tfvars -no-color",
-    "apply": "terraform -chdir=./terraform apply -input=false -var-file=../environments/prod.tfvars -var-file=../environments/shared.tfvars -auto-approve -no-color",
-    "import": "terraform -chdir=./terraform import -var-file=../environments/prod.tfvars -var-file=../environments/shared.tfvars"
+    "plan": "terraform -chdir=./terraform plan -input=false -var-file=../environments/vars.tfvars -var-file=../environments/apps.tfvars -no-color",
+    "apply": "terraform -chdir=./terraform apply -input=false -var-file=../environments/vars.tfvars -var-file=../environments/apps.tfvars -auto-approve -no-color",
+    "import": "terraform -chdir=./terraform import -var-file=../environments/vars.tfvars -var-file=../environments/apps.tfvars"
   }
 }
