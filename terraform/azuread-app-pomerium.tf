@@ -47,13 +47,20 @@ resource "azuread_application" "pomerium" {
 
   group_membership_claims = ["SecurityGroup", "ApplicationGroup"]
 
-  api {
-    requested_access_token_version = "2"
-  }
+  identifier_uris = [
+    "https://login.${var.root_domain}"
+  ]
 
   feature_tags {
     enterprise = true
     gallery    = false
+  }
+
+  # To allow managing roles as separate resources so that they can be referenced by their names
+  lifecycle {
+    ignore_changes = [
+      app_role,
+    ]
   }
 }
 
@@ -68,6 +75,15 @@ resource "azuread_service_principal" "pomerium" {
   feature_tags {
     enterprise = true
   }
+}
+
+resource "azuread_application_app_role" "pomerium_healthcheck" {
+  application_id       = azuread_application.pomerium.id
+  role_id              = "46c9cc46-fc44-4471-bdcd-f664a3ac50af"
+  value                = "healthchecker"
+  display_name         = "Healthchecker"
+  description          = "Application which have permission to execute healthchecks against application behind Pomerium"
+  allowed_member_types = ["Application"]
 }
 
 # Admin level consent for the required scopes

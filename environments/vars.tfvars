@@ -22,7 +22,8 @@ grafana_redirect_urls = [
 ]
 
 wikijs_redirect_urls = [
-    "https://docs.homecentr.one/login/1b25df86-74d1-48ae-bbff-4bedae784776/callback"
+  # "https://docs.homecentr.one/login/1b25df86-74d1-48ae-bbff-4bedae784776/callback",
+  "https://docs.homecentr.one/login/16560089-1af1-490f-ab52-8c0fded45221/callback"
 ]
 
 photoprism_redirect_urls = [
@@ -39,13 +40,20 @@ whatsupdocker_redirect_urls = [
   "https://whatsupdocker.homecentr.one/auth/oidc/aad/cb"
 ]
 
+oauth2proxy_redirect_urls = [
+  "https://oauth.homecentr.one/oauth2/callback"
+]
+
 snipeit_root_url = "https://snipeit.homecentr.one"
 nextcloud_root_url = "https://nextcloud.homecentr.one"
 
 cloudflare_ssh_hosts = [
+  # Proxmox
   { hostname = "pve1" },
   { hostname = "pve2" },
   { hostname = "pve3" },
+  
+  # LXC
   { hostname = "app-pbs" },
   { hostname = "app-pihole1" },
   { hostname = "app-pihole2" },
@@ -61,7 +69,11 @@ cloudflare_ssh_hosts = [
   { hostname = "app-homepage" },
   { hostname = "app-autosnap" },
   { hostname = "app-myspeed" },
-  { hostname = "app-immich" }
+  { hostname = "app-immich" },
+  
+  # VM
+  { hostname = "app-coder" },
+  { hostname = "app-pomerium" }
 ]
 
 cloudflare_apps_subdomain_suffix     = ""

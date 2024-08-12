@@ -100,3 +100,9 @@ resource "azuread_app_role_assignment" "wikijs_users" {
   principal_object_id = azuread_group.users.object_id
   resource_object_id  = azuread_service_principal.wikijs.object_id
 }
+
+resource "azuread_app_role_assignment" "wikijs_administrators" {
+  app_role_id         = "00000000-0000-0000-0000-000000000000" # Default access
+  principal_object_id = azuread_group.administrators.object_id
+  resource_object_id  = azuread_service_principal.wikijs.object_id
+}

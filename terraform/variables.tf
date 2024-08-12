@@ -47,6 +47,7 @@ variable "wikijs_redirect_urls" { type = list(string) }
 variable "photoprism_redirect_urls" { type = list(string) }
 variable "immich_redirect_urls" { type = list(string) }
 variable "whatsupdocker_redirect_urls" { type = list(string) }
+variable "oauth2proxy_redirect_urls" { type = list(string) }
 
 variable "snipeit_root_url" { type = string }
 variable "nextcloud_root_url" { type = string }

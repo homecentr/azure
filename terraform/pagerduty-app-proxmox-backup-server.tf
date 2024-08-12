@@ -1,6 +1,6 @@
 resource "pagerduty_service" "pbs" {
   name                    = "Proxmox Backup Server"
-  auto_resolve_timeout    = 14400
+  auto_resolve_timeout    = 7 * 24 * 60 * 60
   acknowledgement_timeout = 600
   escalation_policy       = pagerduty_escalation_policy.default.id
   alert_creation          = "create_alerts_and_incidents"
