@@ -7,8 +7,8 @@ resource "pagerduty_service" "loki" {
 }
 
 resource "pagerduty_service_integration" "loki_gatus" {
-  name              = "Gatus"
-  type              = "events_api_v2_inbound_integration"
+  name = "Gatus"
+  type = "events_api_v2_inbound_integration"
 
   service = pagerduty_service.loki.id
 }

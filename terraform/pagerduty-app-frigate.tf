@@ -7,8 +7,8 @@ resource "pagerduty_service" "frigate" {
 }
 
 resource "pagerduty_service_integration" "frigate_gatus" {
-  name              = "Gatus"
-  type              = "events_api_v2_inbound_integration"
+  name = "Gatus"
+  type = "events_api_v2_inbound_integration"
 
   service = pagerduty_service.frigate.id
 }

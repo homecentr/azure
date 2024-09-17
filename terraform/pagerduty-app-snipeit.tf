@@ -15,8 +15,8 @@ resource "pagerduty_service_integration" "snipeit" {
 }
 
 resource "pagerduty_service_integration" "snipeit_gatus" {
-  name              = "Gatus"
-  type              = "events_api_v2_inbound_integration"
+  name = "Gatus"
+  type = "events_api_v2_inbound_integration"
 
   service = pagerduty_service.snipeit.id
 }

@@ -15,8 +15,8 @@ resource "pagerduty_service_integration" "traefik_acme" {
 }
 
 resource "pagerduty_service_integration" "traefik_gatus" {
-  name              = "Gatus"
-  type              = "events_api_v2_inbound_integration"
+  name = "Gatus"
+  type = "events_api_v2_inbound_integration"
 
   service = pagerduty_service.traefik.id
 }

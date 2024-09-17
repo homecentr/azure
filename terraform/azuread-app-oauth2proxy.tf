@@ -66,7 +66,7 @@ resource "azuread_service_principal" "oauth2proxy" {
 resource "azuread_service_principal_delegated_permission_grant" "oauth2proxy" {
   service_principal_object_id          = azuread_service_principal.oauth2proxy.object_id
   resource_service_principal_object_id = azuread_service_principal.msgraph.object_id
-  claim_values                         = [ "Group.Read.All" ]
+  claim_values                         = ["Group.Read.All"]
 }
 
 # Assign the app to the Administrators group

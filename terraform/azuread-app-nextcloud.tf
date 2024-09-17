@@ -11,7 +11,7 @@ resource "azuread_application" "nextcloud" {
       "${var.nextcloud_root_url}/",
     ]
   }
-  
+
   api {
     requested_access_token_version = "2"
   }
@@ -22,7 +22,7 @@ resource "azuread_application" "nextcloud" {
     custom_single_sign_on = true
   }
 
-  identifier_uris = [ "${var.nextcloud_root_url}/apps/user_saml/saml/metadata" ]
+  identifier_uris = ["${var.nextcloud_root_url}/apps/user_saml/saml/metadata"]
 }
 
 resource "azuread_service_principal" "nextcloud" {

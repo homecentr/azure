@@ -7,8 +7,8 @@ resource "pagerduty_service" "home_assistant" {
 }
 
 resource "pagerduty_service_integration" "home_assistant_gatus" {
-  name              = "Gatus"
-  type              = "events_api_v2_inbound_integration"
+  name = "Gatus"
+  type = "events_api_v2_inbound_integration"
 
   service = pagerduty_service.home_assistant.id
 }

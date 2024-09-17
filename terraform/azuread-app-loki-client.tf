@@ -7,9 +7,9 @@ resource "azuread_application" "loki_client" {
     requested_access_token_version = "2"
   }
 
-  identifier_uris = [ 
+  identifier_uris = [
     "https://loki-client.${var.root_domain}"
-   ]
+  ]
 
   required_resource_access {
     resource_app_id = azuread_application.loki.object_id
@@ -43,7 +43,7 @@ resource "azuread_service_principal" "loki_client" {
 resource "azuread_service_principal_delegated_permission_grant" "loki_client" {
   service_principal_object_id          = azuread_service_principal.loki_client.object_id
   resource_service_principal_object_id = azuread_service_principal.msgraph.object_id
-  
+
   claim_values = [
     azuread_application_permission_scope.loki_push_logs.value
   ]

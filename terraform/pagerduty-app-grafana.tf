@@ -7,15 +7,15 @@ resource "pagerduty_service" "grafana" {
 }
 
 resource "pagerduty_service_integration" "grafana_gatus" {
-  name              = "Gatus"
-  type              = "events_api_v2_inbound_integration"
+  name = "Gatus"
+  type = "events_api_v2_inbound_integration"
 
   service = pagerduty_service.grafana.id
 }
 
 resource "pagerduty_service_integration" "grafana_grafana" {
-  name              = "Grafana Alerts"
-  type              = "events_api_v2_inbound_integration"
+  name = "Grafana Alerts"
+  type = "events_api_v2_inbound_integration"
 
   service = pagerduty_service.grafana.id
 }

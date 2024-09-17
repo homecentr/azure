@@ -8,8 +8,8 @@ resource "pagerduty_service" "azuread" {
 
 
 resource "pagerduty_service_integration" "azuread_azureautomation" {
-  name              = "Gatus"
-  type              = "events_api_v2_inbound_integration"
+  name = "Gatus"
+  type = "events_api_v2_inbound_integration"
 
   service = pagerduty_service.cloudflare.id
 }

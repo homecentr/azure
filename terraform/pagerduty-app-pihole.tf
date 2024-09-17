@@ -7,8 +7,8 @@ resource "pagerduty_service" "pihole" {
 }
 
 resource "pagerduty_service_integration" "pihole_gatus" {
-  name              = "Gatus"
-  type              = "events_api_v2_inbound_integration"
+  name = "Gatus"
+  type = "events_api_v2_inbound_integration"
 
   service = pagerduty_service.pihole.id
 }

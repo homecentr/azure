@@ -17,9 +17,9 @@ resource "azuread_application" "snipeit" {
 
   optional_claims {
     saml2_token {
-      essential             = true
-      name                  = "NameID"
-      source                = "user"
+      essential = true
+      name      = "NameID"
+      source    = "user"
     }
   }
 
@@ -33,7 +33,7 @@ resource "azuread_application" "snipeit" {
     custom_single_sign_on = true
   }
 
-  identifier_uris = [ var.snipeit_root_url ]
+  identifier_uris = [var.snipeit_root_url]
 }
 
 resource "azuread_service_principal" "snipeit" {

@@ -15,8 +15,8 @@ resource "pagerduty_service_integration" "haraka" {
 }
 
 resource "pagerduty_service_integration" "haraka_gatus" {
-  name              = "Gatus"
-  type              = "events_api_v2_inbound_integration"
+  name = "Gatus"
+  type = "events_api_v2_inbound_integration"
 
   service = pagerduty_service.haraka.id
 }

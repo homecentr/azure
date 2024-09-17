@@ -7,8 +7,8 @@ resource "pagerduty_service" "myspeed" {
 }
 
 resource "pagerduty_service_integration" "myspeed_gatus" {
-  name              = "Gatus"
-  type              = "events_api_v2_inbound_integration"
+  name = "Gatus"
+  type = "events_api_v2_inbound_integration"
 
   service = pagerduty_service.myspeed.id
 }

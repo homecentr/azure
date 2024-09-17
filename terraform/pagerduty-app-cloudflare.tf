@@ -8,8 +8,8 @@ resource "pagerduty_service" "cloudflare" {
 
 
 resource "pagerduty_service_integration" "cloudflare_gatus" {
-  name              = "Gatus"
-  type              = "events_api_v2_inbound_integration"
+  name = "Gatus"
+  type = "events_api_v2_inbound_integration"
 
   service = pagerduty_service.cloudflare.id
 }
