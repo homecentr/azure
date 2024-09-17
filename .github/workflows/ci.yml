@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  validate:
+  deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: read
