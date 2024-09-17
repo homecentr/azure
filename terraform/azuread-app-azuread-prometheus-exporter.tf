@@ -1,22 +1,8 @@
 resource "azuread_application" "azuread_prometheus_exporter" {
-  display_name            = "AzureAD Prometheus Exporter"
+  display_name            = "Azure AD Prometheus Exporter"
   sign_in_audience        = "AzureADMyOrg"
-  logo_image              = filebase64("../icons/cloudflare.png") # TODO
+  logo_image              = filebase64("../icons/azuread.png")
   group_membership_claims = ["ApplicationGroup"]
-
-  # required_resource_access {
-  #   #resource_app_id = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph
-
-  #   # resource_access {
-  #   #   id   = azuread_service_principal.msgraph.oauth2_permission_scope_ids["Application.Read.All"]
-  #   #   type = "Scope"
-  #   # }
-
-  #   # resource_access {
-  #   #   id   = azuread_service_principal.msgraph.app_role_ids["Application.Read.All"]
-  #   #   type = "Role"
-  #   # }
-  # }
 
   api {
     requested_access_token_version = "2"
