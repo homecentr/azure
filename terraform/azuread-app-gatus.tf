@@ -29,19 +29,3 @@ resource "azuread_service_principal" "gatus" {
     enterprise = true
   }
 }
-
-# Healtchecker role to pomerium app
-resource "azuread_app_role_assignment" "pomerium_gatus" {
-  app_role_id         = azuread_application_app_role.pomerium_healthcheck.role_id # "00000000-0000-0000-0000-000000000000" # Default access
-  principal_object_id = azuread_service_principal.gatus.object_id
-  resource_object_id  = azuread_service_principal.pomerium.object_id
-}
-
-# # Admin level consent for the required scopes
-# resource "azuread_service_principal_delegated_permission_grant" "gatus" {
-#   service_principal_object_id          = azuread_service_principal.gatus.object_id
-#   resource_service_principal_object_id = azuread_service_principal.pomerium.object_id
-#   claim_values = [
-#     "healthcheck", ".default"
-#   ]
-# }

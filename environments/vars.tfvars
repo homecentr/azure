@@ -1,10 +1,6 @@
 environment_name = "prod"
 root_domain = "homecentr.one"
 
-pomerium_redirect_urls = [
-  "https://login.homecentr.one/oauth2/callback"
-]
-
 proxmox_redirect_urls = [
   "https://pve.homecentr.one/",
   "https://pve1.homecentr.one/",
@@ -70,12 +66,149 @@ cloudflare_ssh_hosts = [
   { hostname = "app-autosnap" },
   { hostname = "app-myspeed" },
   { hostname = "app-immich" },
+  { hostname = "app-traefik1" },
+  { hostname = "app-traefik2" },
+  { hostname = "app-traefik3" },
   
   # VM
-  { hostname = "app-coder" },
-  { hostname = "app-pomerium" }
+  { hostname = "app-coder" }
 ]
 
 cloudflare_apps_subdomain_suffix     = ""
 cloudflare_apps_root_domain          = "homecentr.one"
 cloudflare_health_service_token_name = "6db2c43c-9434-48a2-8036-dcebbcc8dbfe"
+
+cloudflare_apps = [
+  {
+    subdomain           = "login"
+    display_name        = "Login"
+    allow_non_admins    = true,
+    allow_service_token = false
+  },
+  {
+    subdomain           = "oauth"
+    display_name        = "OAuth"
+    allow_non_admins    = true,
+    allow_service_token = false
+  },
+  {
+    subdomain           = "pve"
+    display_name        = "Proxmox VE"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "pbs"
+    display_name        = "Proxmox Backup Server"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "pihole1"
+    display_name        = "Pi-hole 1"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "pihole2"
+    display_name        = "Pi-hole 2"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "status"
+    display_name        = "Gatus"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "grafana"
+    display_name        = "Grafana"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "prometheus"
+    display_name        = "Prometheus"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "unifi"
+    display_name        = "Unifi Controller"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "docs"
+    display_name        = "Docs"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "snipeit"
+    display_name        = "Snipe IT"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "tunnel-health"
+    display_name        = "Cloudflare Tunnel Healthcheck"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "homepage"
+    display_name        = "Homepage"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "coder"
+    display_name        = "Coder"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "speed"
+    display_name        = "MySpeed"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "immich"
+    display_name        = "Immich"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "nvr"
+    display_name        = "Frigate"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "whatsupdocker"
+    display_name        = "What's up Docker"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "home-assistant"
+    display_name        = "Home Assistant"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "nextcloud-aio"
+    display_name        = "Nextcloud AIO"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "nextcloud"
+    display_name        = "Nextcloud"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+]
