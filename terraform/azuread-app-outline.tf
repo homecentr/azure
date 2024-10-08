@@ -55,7 +55,7 @@ resource "azuread_service_principal" "outline" {
 resource "azuread_service_principal_delegated_permission_grant" "outline" {
   service_principal_object_id          = azuread_service_principal.outline.object_id
   resource_service_principal_object_id = azuread_service_principal.msgraph.object_id
-  claim_values                         = [ "email", "profile", "offline_access"]
+  claim_values                         = ["email", "profile", "offline_access"]
 }
 
 # Assign the app to the Administrators group
