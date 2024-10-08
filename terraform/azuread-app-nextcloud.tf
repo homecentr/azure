@@ -52,3 +52,27 @@ resource "azuread_app_role_assignment" "nextcloud_administrators" {
   principal_object_id = azuread_group.administrators.object_id
   resource_object_id  = azuread_service_principal.nextcloud.object_id
 }
+
+## OneDrive integration
+resource "azuread_application" "nextcloud_onedrive" {
+  display_name     = "Nextcloud OneDrive Integration"
+  sign_in_audience = "PersonalMicrosoftAccount"
+  logo_image       = filebase64("../icons/nextcloud.png")
+  template_id      = data.azuread_application_template.saml_toolkit.template_id
+
+  web {
+    redirect_uris = [
+      "${var.nextcloud_root_url}/apps/integration_onedrive/oauth-redirect"
+    ]
+  }
+
+  api {
+    requested_access_token_version = "2"
+  }
+
+  feature_tags {
+    enterprise            = true
+    gallery               = false
+    custom_single_sign_on = true
+  }
+}

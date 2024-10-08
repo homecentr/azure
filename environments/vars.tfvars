@@ -211,4 +211,40 @@ cloudflare_apps = [
     allow_non_admins    = true,
     allow_service_token = true
   },
+  {
+    subdomain           = "jellyfin"
+    display_name        = "Jellyfin"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "jellyseerr"
+    display_name        = "Jellyseerr"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "qbittorrent"
+    display_name        = "qBittorrent"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "sonarr"
+    display_name        = "Sonarr"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "radarr"
+    display_name        = "Radarr"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "prowlarr"
+    display_name        = "Prowlarr"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
 ]
