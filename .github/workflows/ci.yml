@@ -39,10 +39,10 @@ jobs:
 
       - name: Dump secrets
         run: |
-            echo $SOPS_AGE_KEY &gt; /tmp/.env
-            echo $TF_VAR_aad_credentials &gt;&gt; /tmp/.env
-            echo $TF_VAR_cloudflare_api_token &gt;&gt; /tmp/.env
-            echo $TF_VAR_pagerduty_api_token &gt;&gt; /tmp/.env
+            echo $SOPS_AGE_KEY > /tmp/.env
+            echo $TF_VAR_aad_credentials >> /tmp/.env
+            echo $TF_VAR_cloudflare_api_token >> /tmp/.env
+            echo $TF_VAR_pagerduty_api_token >> /tmp/.env
         shell: bash
         env:
           SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_PRIVATE_KEY }}
