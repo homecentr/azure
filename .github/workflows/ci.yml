@@ -37,6 +37,12 @@ jobs:
         env:
           SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_PRIVATE_KEY }}
 
+      - name: Setup upterm session
+        uses: lhotari/action-upterm@v1
+        with:
+          limit-access-to-actor: true
+          limit-access-to-users: lholota
+
       - name: Apply terraform
         run: |
           yarn run apply
