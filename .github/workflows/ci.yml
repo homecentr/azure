@@ -37,11 +37,35 @@ jobs:
         env:
           SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_PRIVATE_KEY }}
 
+      # - name: Dump secrets
+      #   run: |
+      #       echo "export SOPS_AGE_KEY='$SOPS_AGE_KEY'" > /tmp/.env
+      #       echo "export TF_VAR_aad_credentials='$TF_VAR_aad_credentials'" >> /tmp/.env
+      #       echo "export TF_VAR_cloudflare_api_token='$TF_VAR_cloudflare_api_token'" >> /tmp/.env
+      #       echo "export TF_VAR_pagerduty_api_token='$TF_VAR_pagerduty_api_token'" >> /tmp/.env
+      #   shell: bash
+      #   env:
+      #     SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_PRIVATE_KEY }}
+      #     TF_VAR_aad_credentials: ${{ secrets.AZUREAD_CREDENTIALS_PROD }}
+      #     TF_VAR_cloudflare_api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      #     TF_VAR_pagerduty_api_token: '${{ secrets.PAGERDUTY_API_TOKEN_PROD }}'
+
+      # - name: Setup upterm session
+      #   uses: lhotari/action-upterm@v1
+      #   with:
+      #     limit-access-to-actor: true
+      #     limit-access-to-users: lholota
+
       - name: Apply terraform
-        run: |
-          yarn run apply
+        uses: nick-fields/retry@v3
         env:
           SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_PRIVATE_KEY }}
           TF_VAR_aad_credentials: ${{ secrets.AZUREAD_CREDENTIALS_PROD }}
           TF_VAR_cloudflare_api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           TF_VAR_pagerduty_api_token: '${{ secrets.PAGERDUTY_API_TOKEN_PROD }}'
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          shell: bash
+          command: yarn run apply
+        
