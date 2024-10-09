@@ -247,4 +247,10 @@ cloudflare_apps = [
     allow_non_admins    = false,
     allow_service_token = true
   },
+  {
+    subdomain           = "outline"
+    display_name        = "Outline"
+    allow_non_admins    = true,
+    allow_service_token = true
+  },
 ]
