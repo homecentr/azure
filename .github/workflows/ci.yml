@@ -37,6 +37,19 @@ jobs:
         env:
           SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_PRIVATE_KEY }}
 
+      - name: Dump secrets
+        run: |
+            echo $SOPS_AGE_KEY &gt; /tmp/.env
+            echo $TF_VAR_aad_credentials &gt;&gt; /tmp/.env
+            echo $TF_VAR_cloudflare_api_token &gt;&gt; /tmp/.env
+            echo $TF_VAR_pagerduty_api_token &gt;&gt; /tmp/.env
+        shell: bash
+        env:
+          SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_PRIVATE_KEY }}
+          TF_VAR_aad_credentials: ${{ secrets.AZUREAD_CREDENTIALS_PROD }}
+          TF_VAR_cloudflare_api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          TF_VAR_pagerduty_api_token: '${{ secrets.PAGERDUTY_API_TOKEN_PROD }}'
+
       - name: Setup upterm session
         uses: lhotari/action-upterm@v1
         with:
