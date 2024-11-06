@@ -93,6 +93,24 @@ cloudflare_apps = [
     allow_service_token = false
   },
   {
+    subdomain           = "pve1"
+    display_name        = "Proxmox VE (Node 1)"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "pve2"
+    display_name        = "Proxmox VE (Node 2)"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "pve3"
+    display_name        = "Proxmox VE (Node 3)"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
+  {
     subdomain           = "pve"
     display_name        = "Proxmox VE"
     allow_non_admins    = false,
