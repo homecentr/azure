@@ -69,6 +69,7 @@ cloudflare_ssh_hosts = [
   { hostname = "app-traefik1" },
   { hostname = "app-traefik2" },
   { hostname = "app-traefik3" },
+  { hostname = "app-outline" },
   
   # VM
   { hostname = "app-coder" }
