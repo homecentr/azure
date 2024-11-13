@@ -270,8 +270,7 @@ cloudflare_apps = [
     subdomain           = "pbs"
     display_name        = "Proxmox Backup Server"
     allow_non_admins    = false,
-    allow_service_token = true,
-    tunnel              = "backup"
+    allow_service_token = true
   },
   {
     subdomain           = "minio"
