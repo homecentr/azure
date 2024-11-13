@@ -34,6 +34,26 @@ resource "azuread_application" "minio" {
     }
   }
 
+  optional_claims {
+    access_token {
+      name                  = "groups"
+      additional_properties = ["sam_account_name"]
+      essential             = true
+    }
+    id_token {
+      name                  = "groups"
+      additional_properties = ["sam_account_name"]
+      essential             = true
+    }
+    saml2_token {
+      name                  = "groups"
+      additional_properties = ["sam_account_name"]
+      essential             = true
+    }
+  }
+
+  group_membership_claims = ["ApplicationGroup"]
+
   api {
     requested_access_token_version = "2"
   }
