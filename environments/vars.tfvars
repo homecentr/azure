@@ -50,7 +50,7 @@ cloudflare_ssh_hosts = [
   { hostname = "pve3" },
 
   # LXC
-  { hostname = "app-pbs" },
+  { hostname = "backup" },
   { hostname = "app-pihole1" },
   { hostname = "app-pihole2" },
   { hostname = "app-cloudflared1" },
@@ -113,12 +113,6 @@ cloudflare_apps = [
   {
     subdomain           = "pve"
     display_name        = "Proxmox VE"
-    allow_non_admins    = false,
-    allow_service_token = true
-  },
-  {
-    subdomain           = "pbs"
-    display_name        = "Proxmox Backup Server"
     allow_non_admins    = false,
     allow_service_token = true
   },
@@ -271,6 +265,13 @@ cloudflare_apps = [
     display_name        = "Outline"
     allow_non_admins    = true,
     allow_service_token = true
+  },
+  {
+    subdomain           = "pbs"
+    display_name        = "Proxmox Backup Server"
+    allow_non_admins    = false,
+    allow_service_token = true,
+    tunnel              = "backup"
   },
   {
     subdomain           = "minio"
