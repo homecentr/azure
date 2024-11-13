@@ -5,9 +5,9 @@ resource "cloudflare_tunnel" "default" {
   config_src = "local"
 }
 
-resource "cloudflare_tunnel" "backup" {
-  account_id = sensitive(data.sops_file.secrets.data["cloudflare_account_id"])
-  name       = "Homecentr / Backup"
-  secret     = sensitive(base64encode(data.sops_file.secrets.data["cloudflare_tunnel_backup_secret"]))
-  config_src = "local"
-}
+# resource "cloudflare_tunnel" "backup" {
+#   account_id = sensitive(data.sops_file.secrets.data["cloudflare_account_id"])
+#   name       = "Homecentr / Backup"
+#   secret     = sensitive(base64encode(data.sops_file.secrets.data["cloudflare_tunnel_backup_secret"]))
+#   config_src = "local"
+# }
