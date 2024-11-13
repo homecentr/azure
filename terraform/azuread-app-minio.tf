@@ -4,7 +4,9 @@ resource "azuread_application" "minio" {
   logo_image       = filebase64("../icons/minio.png")
 
   web {
-    redirect_uris = "https://minio.${var.root_domain}/oauth_callback"
+    redirect_uris = [
+      "https://minio.${var.root_domain}/oauth_callback"
+    ]
   }
 
   required_resource_access {
