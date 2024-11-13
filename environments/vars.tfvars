@@ -277,7 +277,6 @@ cloudflare_apps = [
     subdomain           = "minio"
     display_name        = "MinIO"
     allow_non_admins    = false,
-    allow_service_token = true,
-    tunnel              = "backup"
+    allow_service_token = true
   },
 ]
