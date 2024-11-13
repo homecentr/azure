@@ -18,7 +18,7 @@ variable "cloudflare_apps" {
     display_name        = string
     allow_non_admins    = bool
     allow_service_token = bool
-    tunnel = optional(string, "default")
+    tunnel              = optional(string, "default")
   }))
 }
 

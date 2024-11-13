@@ -4,7 +4,7 @@ resource "cloudflare_record" "apps" {
   zone_id = data.sops_file.secrets.data["cloudflare_zone_id"]
   name    = "${each.value.subdomain}${var.cloudflare_apps_subdomain_suffix}.${var.cloudflare_apps_root_domain}"
   type    = "CNAME"
-  value   = each.value.tunnel == "backup" ?  cloudflare_tunnel.backup.cname : cloudflare_tunnel.default.cname
+  value   = each.value.tunnel == "backup" ? cloudflare_tunnel.backup.cname : cloudflare_tunnel.default.cname
   ttl     = 1
   proxied = true
 }
