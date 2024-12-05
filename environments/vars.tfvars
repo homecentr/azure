@@ -1,5 +1,5 @@
 environment_name = "prod"
-root_domain = "homecentr.one"
+root_domain      = "homecentr.one"
 
 proxmox_redirect_urls = [
   "https://pve.homecentr.one/",
@@ -40,7 +40,7 @@ oauth2proxy_redirect_urls = [
   "https://oauth.homecentr.one/oauth2/callback"
 ]
 
-snipeit_root_url = "https://snipeit.homecentr.one"
+snipeit_root_url   = "https://snipeit.homecentr.one"
 nextcloud_root_url = "https://nextcloud.homecentr.one"
 
 cloudflare_ssh_hosts = [
@@ -48,9 +48,9 @@ cloudflare_ssh_hosts = [
   { hostname = "pve1" },
   { hostname = "pve2" },
   { hostname = "pve3" },
-  
+
   # LXC
-  { hostname = "app-pbs" },
+  { hostname = "backup" },
   { hostname = "app-pihole1" },
   { hostname = "app-pihole2" },
   { hostname = "app-cloudflared1" },
@@ -70,7 +70,7 @@ cloudflare_ssh_hosts = [
   { hostname = "app-traefik2" },
   { hostname = "app-traefik3" },
   { hostname = "app-outline" },
-  
+
   # VM
   { hostname = "app-coder" }
 ]
@@ -113,12 +113,6 @@ cloudflare_apps = [
   {
     subdomain           = "pve"
     display_name        = "Proxmox VE"
-    allow_non_admins    = false,
-    allow_service_token = true
-  },
-  {
-    subdomain           = "pbs"
-    display_name        = "Proxmox Backup Server"
     allow_non_admins    = false,
     allow_service_token = true
   },
@@ -270,6 +264,18 @@ cloudflare_apps = [
     subdomain           = "outline"
     display_name        = "Outline"
     allow_non_admins    = true,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "pbs"
+    display_name        = "Proxmox Backup Server"
+    allow_non_admins    = false,
+    allow_service_token = true
+  },
+  {
+    subdomain           = "minio"
+    display_name        = "MinIO"
+    allow_non_admins    = false,
     allow_service_token = true
   },
 ]
