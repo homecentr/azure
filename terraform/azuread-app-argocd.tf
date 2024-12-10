@@ -66,3 +66,17 @@ resource "azuread_service_principal" "argocd" {
     enterprise = true
   }
 }
+
+# Admin level consent for the required scopes
+resource "azuread_service_principal_delegated_permission_grant" "argocd" {
+  service_principal_object_id          = azuread_service_principal.argocd.object_id
+  resource_service_principal_object_id = azuread_service_principal.msgraph.object_id
+  claim_values                         = ["openid", "offline_access"]
+}
+
+# Assign the app to the Administrators group
+resource "azuread_app_role_assignment" "argocd_administrators" {
+  app_role_id         = "00000000-0000-0000-0000-000000000000" # Default access
+  principal_object_id = azuread_group.administrators.object_id
+  resource_object_id  = azuread_service_principal.argocd.object_id
+}
