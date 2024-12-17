@@ -278,4 +278,10 @@ cloudflare_apps = [
     allow_non_admins    = false,
     allow_service_token = true
   },
+  {
+    subdomain           = "k8s"
+    display_name        = "Kubernetes API"
+    allow_non_admins    = false,
+    allow_service_token = false
+  },
 ]
