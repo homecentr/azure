@@ -284,4 +284,10 @@ cloudflare_apps = [
     allow_non_admins    = false,
     allow_service_token = false
   },
+  {
+    subdomain           = "talos"
+    display_name        = "Talos API"
+    allow_non_admins    = false,
+    allow_service_token = false
+  }
 ]
