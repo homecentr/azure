@@ -4,7 +4,7 @@ resource "cloudflare_record" "ssh_prefixed" {
   zone_id = sensitive(data.sops_file.secrets.data["cloudflare_zone_id"])
   name    = "ssh-${each.key}.${var.cloudflare_apps_root_domain}"
   type    = "CNAME"
-  content = cloudflare_tunnel.default.cname
+  value   = cloudflare_tunnel.default.cname
   ttl     = 1
   proxied = true
 }
